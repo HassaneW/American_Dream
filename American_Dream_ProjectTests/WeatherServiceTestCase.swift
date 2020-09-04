@@ -135,9 +135,12 @@ class Wheather: XCTestCase {
                 XCTAssertEqual(weather[0].degrees, 27.52)
                 XCTAssertEqual(weather[1].degrees, 13.39)
                 XCTAssertEqual(weather[0].conditions[0].icon, "04d")
-                XCTAssertEqual(weather[1].conditions[0].icon, "02n")
+                XCTAssertNil(weather[1].conditions[0].icon)
                 XCTAssertEqual(weather[0].conditionIconUrl, "https://openweathermap.org/img/wn/04d@2x.png")
-                XCTAssertEqual(weather[1].conditionIconUrl, "https://openweathermap.org/img/wn/02n@2x.png")
+                XCTAssertNil(weather[1].conditionIconUrl)
+                XCTAssertEqual(weather[0].description, "Weather for Dakar is 27.52°C with broken clouds, IconUrl: https://openweathermap.org/img/wn/04d@2x.png")
+                XCTAssertEqual(weather[1].description, "Weather for New York is 13.39°C with few clouds, IconUrl: Missing Icon Url")
+
             case .failure:
                 XCTFail()
             }

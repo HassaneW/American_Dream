@@ -12,7 +12,6 @@
 		508E60622502493800F1949B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508E60602502493800F1949B /* LaunchScreen.storyboard */; };
 		508E607825024A4500F1949B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508E607725024A4500F1949B /* Main.storyboard */; };
 		508E607A25024A6100F1949B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508E607925024A6100F1949B /* Assets.xcassets */; };
-		508E608125024A8400F1949B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607C25024A8400F1949B /* ViewController.swift */; };
 		508E608225024A8400F1949B /* OpenWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607D25024A8400F1949B /* OpenWeatherViewController.swift */; };
 		508E608325024A8400F1949B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607E25024A8400F1949B /* TabBarViewController.swift */; };
 		508E608425024A8400F1949B /* Exchange_rateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607F25024A8400F1949B /* Exchange_rateViewController.swift */; };
@@ -56,7 +55,6 @@
 		508E606E2502493900F1949B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		508E607725024A4500F1949B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		508E607925024A6100F1949B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		508E607C25024A8400F1949B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		508E607D25024A8400F1949B /* OpenWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherViewController.swift; sourceTree = "<group>"; };
 		508E607E25024A8400F1949B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		508E607F25024A8400F1949B /* Exchange_rateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exchange_rateViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 		508E607B25024A8400F1949B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				508E607C25024A8400F1949B /* ViewController.swift */,
 				508E607D25024A8400F1949B /* OpenWeatherViewController.swift */,
 				508E607E25024A8400F1949B /* TabBarViewController.swift */,
 				508E607F25024A8400F1949B /* Exchange_rateViewController.swift */,
@@ -307,7 +304,6 @@
 				508E609825024AFA00F1949B /* ServiceError.swift in Sources */,
 				508E60562502493300F1949B /* AppDelegate.swift in Sources */,
 				508E608425024A8400F1949B /* Exchange_rateViewController.swift in Sources */,
-				508E608125024A8400F1949B /* ViewController.swift in Sources */,
 				508E608B25024AEF00F1949B /* Money.swift in Sources */,
 				508E608C25024AEF00F1949B /* Translate.swift in Sources */,
 				508E608225024A8400F1949B /* OpenWeatherViewController.swift in Sources */,

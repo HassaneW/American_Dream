@@ -132,6 +132,7 @@ class Money: XCTestCase {
                 XCTAssertEqual(money.monnaie.dollar, 1.183019)
                 XCTAssertEqual(money.monnaie.cfa, 657.685376)
                 XCTAssertEqual(money.baseConversion, 1.183019)
+                XCTAssertEqual(money.description, "Base Money : EUR, date : 2020-08-25, Conversion : 1.183019$")
             case .failure:
                 XCTFail()
             }

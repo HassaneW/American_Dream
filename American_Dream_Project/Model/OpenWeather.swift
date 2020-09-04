@@ -40,7 +40,7 @@ struct Weather : Codable {
 
 extension Weather : CustomStringConvertible {
     var description: String {
-        return "Weather for \(cityName) is \(degrees)°C with \(conditionDescription), IconUrl: \(conditionIconUrl)"
+        return "Weather for \(cityName) is \(degrees)°C with \(conditionDescription), IconUrl: \(conditionIconUrl ?? "Missing Icon Url")"
     }
 }
 // MARK: - Main
