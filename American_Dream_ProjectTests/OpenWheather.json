@@ -1,0 +1,83 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": -17.33,
+                "lat": 14.75
+            },
+            "sys": {
+                "country": "SN",
+                "timezone": 0,
+                "sunrise": 1597820160,
+                "sunset": 1597865403
+            },
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 27.52,
+                "feels_like": 29.22,
+                "temp_min": 27,
+                "temp_max": 28,
+                "pressure": 1009,
+                "humidity": 83
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 6.2,
+                "deg": 320
+            },
+            "clouds": {
+                "all": 75
+            },
+            "dt": 1597824630,
+            "id": 2253350,
+            "name": "Dakar"
+        },
+        {
+            "coord": {
+                "lon": -75.5,
+                "lat": 43
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1597831978,
+                "sunset": 1597881503
+            },
+            "weather": [
+                {
+                    "id": 801,
+                    "main": "Clouds",
+                    "description": "few clouds",
+                    "icon": "02n"
+                }
+            ],
+            "main": {
+                "temp": 13.39,
+                "feels_like": 13.29,
+                "temp_min": 12.22,
+                "temp_max": 13.89,
+                "pressure": 1013,
+                "humidity": 91
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 1.01,
+                "deg": 214
+            },
+            "clouds": {
+                "all": 14
+            },
+            "dt": 1597824793,
+            "id": 5128638,
+            "name": "New York"
+        }
+    ]
+}
