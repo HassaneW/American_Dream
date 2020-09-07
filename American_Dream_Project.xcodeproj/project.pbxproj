@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		508E60562502493300F1949B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E60552502493300F1949B /* AppDelegate.swift */; };
-		508E60582502493300F1949B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E60572502493300F1949B /* SceneDelegate.swift */; };
 		508E60622502493800F1949B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508E60602502493800F1949B /* LaunchScreen.storyboard */; };
 		508E607825024A4500F1949B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508E607725024A4500F1949B /* Main.storyboard */; };
 		508E607A25024A6100F1949B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508E607925024A6100F1949B /* Assets.xcassets */; };
-		508E608225024A8400F1949B /* OpenWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607D25024A8400F1949B /* OpenWeatherViewController.swift */; };
+		508E608225024A8400F1949B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607D25024A8400F1949B /* WeatherViewController.swift */; };
 		508E608325024A8400F1949B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607E25024A8400F1949B /* TabBarViewController.swift */; };
-		508E608425024A8400F1949B /* Exchange_rateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607F25024A8400F1949B /* Exchange_rateViewController.swift */; };
+		508E608425024A8400F1949B /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E607F25024A8400F1949B /* ExchangeRateViewController.swift */; };
 		508E608525024A8400F1949B /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E608025024A8400F1949B /* TranslateViewController.swift */; };
 		508E608A25024AEF00F1949B /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E608725024AEF00F1949B /* OpenWeather.swift */; };
 		508E608B25024AEF00F1949B /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E608825024AEF00F1949B /* Money.swift */; };
@@ -48,16 +47,15 @@
 /* Begin PBXFileReference section */
 		508E60522502493300F1949B /* American_Dream_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = American_Dream_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508E60552502493300F1949B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		508E60572502493300F1949B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		508E60612502493800F1949B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		508E60632502493800F1949B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		508E60682502493900F1949B /* American_Dream_ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = American_Dream_ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		508E606E2502493900F1949B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		508E607725024A4500F1949B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		508E607925024A6100F1949B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		508E607D25024A8400F1949B /* OpenWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherViewController.swift; sourceTree = "<group>"; };
+		508E607D25024A8400F1949B /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		508E607E25024A8400F1949B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		508E607F25024A8400F1949B /* Exchange_rateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exchange_rateViewController.swift; sourceTree = "<group>"; };
+		508E607F25024A8400F1949B /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
 		508E608025024A8400F1949B /* TranslateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		508E608725024AEF00F1949B /* OpenWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 		508E608825024AEF00F1949B /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
@@ -96,6 +94,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5030AE642506555100099791 /* Weather_Test */ = {
+			isa = PBXGroup;
+			children = (
+				508E609E25024B9700F1949B /* WeatherServiceTestCase.swift */,
+				508E60A125024B9700F1949B /* OpenWheather.json */,
+			);
+			path = Weather_Test;
+			sourceTree = "<group>";
+		};
+		5030AE65250655A600099791 /* Money_Test */ = {
+			isa = PBXGroup;
+			children = (
+				508E60A025024B9700F1949B /* MoneyServiceTestCase.swift */,
+				508E609C25024B9700F1949B /* ConvertMoney.json */,
+			);
+			path = Money_Test;
+			sourceTree = "<group>";
+		};
+		5030AE66250655CA00099791 /* Translate_Test */ = {
+			isa = PBXGroup;
+			children = (
+				508E60A325024B9800F1949B /* TranslateServiceTestCase.swift */,
+				508E609D25024B9700F1949B /* Translation.json */,
+			);
+			path = Translate_Test;
+			sourceTree = "<group>";
+		};
+		5030AE67250655F600099791 /* Session_Response_Fake */ = {
+			isa = PBXGroup;
+			children = (
+				508E60A225024B9700F1949B /* FakeResponseData.swift */,
+				508E609F25024B9700F1949B /* URLSessionFake.swift */,
+			);
+			path = Session_Response_Fake;
+			sourceTree = "<group>";
+		};
 		508E60492502493300F1949B = {
 			isa = PBXGroup;
 			children = (
@@ -130,14 +164,10 @@
 		508E606B2502493900F1949B /* American_Dream_ProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				508E60A225024B9700F1949B /* FakeResponseData.swift */,
-				508E609F25024B9700F1949B /* URLSessionFake.swift */,
-				508E609E25024B9700F1949B /* WeatherServiceTestCase.swift */,
-				508E60A125024B9700F1949B /* OpenWheather.json */,
-				508E60A025024B9700F1949B /* MoneyServiceTestCase.swift */,
-				508E609C25024B9700F1949B /* ConvertMoney.json */,
-				508E60A325024B9800F1949B /* TranslateServiceTestCase.swift */,
-				508E609D25024B9700F1949B /* Translation.json */,
+				5030AE67250655F600099791 /* Session_Response_Fake */,
+				5030AE66250655CA00099791 /* Translate_Test */,
+				5030AE65250655A600099791 /* Money_Test */,
+				5030AE642506555100099791 /* Weather_Test */,
 				508E606E2502493900F1949B /* Info.plist */,
 			);
 			path = American_Dream_ProjectTests;
@@ -146,9 +176,9 @@
 		508E607B25024A8400F1949B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				508E607D25024A8400F1949B /* OpenWeatherViewController.swift */,
+				508E607D25024A8400F1949B /* WeatherViewController.swift */,
 				508E607E25024A8400F1949B /* TabBarViewController.swift */,
-				508E607F25024A8400F1949B /* Exchange_rateViewController.swift */,
+				508E607F25024A8400F1949B /* ExchangeRateViewController.swift */,
 				508E608025024A8400F1949B /* TranslateViewController.swift */,
 			);
 			path = Controller;
@@ -181,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				508E60552502493300F1949B /* AppDelegate.swift */,
-				508E60572502493300F1949B /* SceneDelegate.swift */,
 				508E607925024A6100F1949B /* Assets.xcassets */,
 			);
 			path = Ressources;
@@ -303,10 +332,10 @@
 				508E609925024AFA00F1949B /* NetworkingMoney.swift in Sources */,
 				508E609825024AFA00F1949B /* ServiceError.swift in Sources */,
 				508E60562502493300F1949B /* AppDelegate.swift in Sources */,
-				508E608425024A8400F1949B /* Exchange_rateViewController.swift in Sources */,
+				508E608425024A8400F1949B /* ExchangeRateViewController.swift in Sources */,
 				508E608B25024AEF00F1949B /* Money.swift in Sources */,
 				508E608C25024AEF00F1949B /* Translate.swift in Sources */,
-				508E608225024A8400F1949B /* OpenWeatherViewController.swift in Sources */,
+				508E608225024A8400F1949B /* WeatherViewController.swift in Sources */,
 				508E609625024AFA00F1949B /* Config.swift in Sources */,
 				508E608525024A8400F1949B /* TranslateViewController.swift in Sources */,
 				508E609725024AFA00F1949B /* APIKey.swift in Sources */,
@@ -314,7 +343,6 @@
 				508E608A25024AEF00F1949B /* OpenWeather.swift in Sources */,
 				508E609425024AFA00F1949B /* NetworkingOpenWeather.swift in Sources */,
 				508E609525024AFA00F1949B /* NetworkingTranslate.swift in Sources */,
-				508E60582502493300F1949B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -456,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -473,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V8J9Z7FB8;
 				INFOPLIST_FILE = American_Dream_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hw.American-Dream-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V8J9Z7FB8;
 				INFOPLIST_FILE = American_Dream_Project/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,7 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hw.American-Dream-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

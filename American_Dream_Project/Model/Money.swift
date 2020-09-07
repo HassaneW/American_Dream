@@ -1,13 +1,5 @@
-//
-//  converterMoneyModel.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 6/28/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
-
 
 // MARK: - Money
 struct Money: Codable {
@@ -23,13 +15,11 @@ struct Money: Codable {
         case date
     }
 }
-
 extension Money : CustomStringConvertible {
     var description: String {
         return "Base Money : \(base), date : \(date), Conversion : \(baseConversion)$"
     }
 }
-
 struct Rates : Codable {
     let dollar: Double
     let cfa: Double

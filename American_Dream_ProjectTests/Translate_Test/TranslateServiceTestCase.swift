@@ -1,22 +1,16 @@
-//
-//  Money.swift
-//  test_Projet_9Tests
-//
-//  Created by Wandianga on 8/27/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import XCTest
 @testable import American_Dream_Project
 
-class Money: XCTestCase {
-    func test_getMoneysInvalidURL() {
-        let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
+class Translate: XCTestCase {
+    func test_getTranslateInvalidURL() {
+        let fakeError = FakeResponseData.error
+        let urlSession = URLSessionFake(data: nil, response: nil, error: fakeError)
         let badUrl = "@,%"
-        let moneyService = MoneyService(convertMoneySession: urlSession, apiUrl: badUrl)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession, apiUrl: badUrl)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -28,13 +22,13 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneysError() {
+    func test_getTranslateError() {
         let fakeError = FakeResponseData.error
         let urlSession = URLSessionFake(data: nil, response: nil, error: fakeError)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -45,12 +39,12 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneyInvalidResponse() {
+    func test_getTranslateInvalidResponse() {
         let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -62,13 +56,13 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneyErrorStatusCode() {
+    func test_getTranslateErrorStatusCode() {
         let fakeResponse = FakeResponseData.responseKO
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -80,13 +74,13 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneyInvalidData() {
+    func test_getTranslateInvalidData() {
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -98,14 +92,14 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneyDecodingError() {
+    func test_getTranslateDecodingError() {
         let fakeData = FakeResponseData.incorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -117,22 +111,17 @@ class Money: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getMoneysDecodingSucess() {
-        let fakeData = FakeResponseData.moneyCorrectData
+    func test_getTranslateDecodingSucess() {
+        let fakeData = FakeResponseData.translationCorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let moneyService = MoneyService(convertMoneySession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue change")
+        let translateService = TranslateService(translateSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue")
         
-        moneyService.getMoneys { (result) in
+        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
             switch result {
-            case .success (let money):
-                XCTAssertEqual(money.base, "EUR")
-                XCTAssertEqual(money.date, "2020-08-25")
-                XCTAssertEqual(money.monnaie.dollar, 1.183019)
-                XCTAssertEqual(money.monnaie.cfa, 657.685376)
-                XCTAssertEqual(money.baseConversion, 1.183019)
-                XCTAssertEqual(money.description, "Base Money : EUR, date : 2020-08-25, Conversion : 1.183019$")
+            case .success (let translate):
+                XCTAssertEqual(translate.translatedText, "大家好")
             case .failure:
                 XCTFail()
             }

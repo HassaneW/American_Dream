@@ -1,10 +1,3 @@
-//
-//  FakeResponseData.swift
-//  test_Projet_9Tests
-//
-//  Created by Wandianga on 8/19/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 

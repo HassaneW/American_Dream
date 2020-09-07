@@ -1,10 +1,3 @@
-//
-//  ServiceError.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 8/31/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 
@@ -16,7 +9,6 @@ enum ServiceError: Error {
     case requestError(String)
     case invalidUrl
 }
-
 extension ServiceError : LocalizedError {
     var errorDescription: String? {
         switch self {
@@ -32,7 +24,7 @@ extension ServiceError : LocalizedError {
             return "Invalid Url"
         case .invalidResponse:
             return "Invalid Response"
-
+            
         }
     }
 }

@@ -1,38 +1,19 @@
-//
-//  NetworkingFixerIO.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 6/28/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 
-
 class MoneyService {
     static var shared = MoneyService()
-     
-    
-     private var apiUrl = ConfigNetworkingService.money.baseUrl
-    
-  
-     
-     private var task: URLSessionDataTask?
+    private var apiUrl = ConfigNetworkingService.money.baseUrl
+    private var task: URLSessionDataTask?
     private var convertMoneySession = URLSession(configuration: .default)
-    
-     private init() {}
-    
-    // Session api Url name
+    private init() {}
     init(convertMoneySession: URLSession, apiUrl : String) {
         self.convertMoneySession = convertMoneySession
         self.apiUrl = apiUrl
     }
-    
     init(convertMoneySession: URLSession) {
         self.convertMoneySession = convertMoneySession
     }
-    
-//    let baseUrl = ConfigNetworkingService.money.baseUrl
     func getMoneys(completion: @escaping (Result<Money,ServiceError>) -> Void) {
         let arguments = [
             "access_key" : ConfigNetworkingService.money.apiKey,
@@ -48,9 +29,6 @@ class MoneyService {
             completion(.failure(.invalidUrl))
             return
         }
-     
-//        task = convertMoneySession.dataTask(with: url)
-        
         task = convertMoneySession.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(.requestError(error.localizedDescription)))
@@ -72,7 +50,7 @@ class MoneyService {
                 let moneyConversion = try JSONDecoder().decode(Money.self, from: data)
                 completion(.success(moneyConversion))
             } catch let error {
-              print(error.localizedDescription)
+                print(error.localizedDescription)
                 completion(.failure(.decodingError))
             }
         }

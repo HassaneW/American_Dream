@@ -1,15 +1,7 @@
-//
-//  OpenWeatherViewController.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 6/29/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import UIKit
 
-class OpenWeatherViewController: UIViewController {
-    
+class WeatherViewController: UIViewController {
     @IBOutlet weak var degreesTown : UILabel!
     @IBOutlet weak var conditionWeather : UILabel!
     @IBOutlet weak var imgIcon : UIImageView!
@@ -19,7 +11,6 @@ class OpenWeatherViewController: UIViewController {
         return refreshDate()
     }()
     var weatherArray : [Weather]?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()

@@ -1,23 +1,15 @@
-//
-//  Translate.swift
-//  test_Projet_9Tests
-//
-//  Created by Wandianga on 8/27/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import XCTest
 @testable import American_Dream_Project
 
-class Translate: XCTestCase {
-    func test_getTranslateInvalidURL() {
-        let fakeError = FakeResponseData.error
-        let urlSession = URLSessionFake(data: nil, response: nil, error: fakeError)
+class Wheather: XCTestCase {
+    func test_getWeathersInvalidURL() {
+        let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
         let badUrl = "@,%"
-        let translateService = TranslateService(translateSession: urlSession, apiUrl: badUrl)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession, apiUrl: badUrl)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -29,13 +21,13 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateError() {
+    func test_getWeathersError() {
         let fakeError = FakeResponseData.error
         let urlSession = URLSessionFake(data: nil, response: nil, error: fakeError)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -46,12 +38,12 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateInvalidResponse() {
+    func test_getWeathersinvalidResponse() {
         let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -63,13 +55,13 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateErrorStatusCode() {
+    func test_getWeathersErrorStatusCode() {
         let fakeResponse = FakeResponseData.responseKO
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -81,13 +73,13 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateInvalidData() {
+    func test_getWeathersInvalidData() {
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -99,14 +91,14 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateDecodingError() {
+    func test_getWeathersDecodingError() {
         let fakeData = FakeResponseData.incorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -118,17 +110,30 @@ class Translate: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getTranslateDecodingSucess() {
-        let fakeData = FakeResponseData.translationCorrectData
+    func test_getWeathersDecodingSucess() {
+        let fakeData = FakeResponseData.weatherCorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let translateService = TranslateService(translateSession: urlSession)
-        let expectation = XCTestExpectation(description: "wait for queue")
+        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let expectation = XCTestExpectation(description: "wait for queue change")
         
-        translateService.getTranslate(text: "q", targetCode: "target") { (result) in
+        weatherService.getWeathers { (result) in
             switch result {
-            case .success (let translate):
-                XCTAssertEqual(translate.translatedText, "大家好")
+            case .success (let weather):
+                XCTAssertEqual(weather.count, 2)
+                XCTAssertEqual(weather[0].cityName, "Dakar")
+                XCTAssertEqual(weather[1].cityName, "New York")
+                XCTAssertEqual(weather[0].conditionDescription, "broken clouds")
+                XCTAssertEqual(weather[1].conditionDescription, "few clouds")
+                XCTAssertEqual(weather[0].degrees, 27.52)
+                XCTAssertEqual(weather[1].degrees, 13.39)
+                XCTAssertEqual(weather[0].conditions[0].icon, "04d")
+                XCTAssertNil(weather[1].conditions[0].icon)
+                XCTAssertEqual(weather[0].conditionIconUrl, "https://openweathermap.org/img/wn/04d@2x.png")
+                XCTAssertNil(weather[1].conditionIconUrl)
+                XCTAssertEqual(weather[0].description, "Weather for Dakar is 27.52°C with broken clouds, IconUrl: https://openweathermap.org/img/wn/04d@2x.png")
+                XCTAssertEqual(weather[1].description, "Weather for New York is 13.39°C with few clouds, IconUrl: Missing Icon Url")
+                
             case .failure:
                 XCTFail()
             }

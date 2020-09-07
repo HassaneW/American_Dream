@@ -1,10 +1,3 @@
-//
-//  WeatherService.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 6/27/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 
@@ -12,10 +5,9 @@ import Foundation
 struct OpenWeather: Codable {
     let weathers: [Weather]
     enum CodingKeys: String, CodingKey {
-    case weathers = "list"
+        case weathers = "list"
     }
 }
-
 // MARK: - List
 struct Weather : Codable {
     let conditions: [Condition]
@@ -37,7 +29,6 @@ struct Weather : Codable {
         case cityName = "name"
     }
 }
-
 extension Weather : CustomStringConvertible {
     var description: String {
         return "Weather for \(cityName) is \(degrees)°C with \(conditionDescription), IconUrl: \(conditionIconUrl ?? "Missing Icon Url")"

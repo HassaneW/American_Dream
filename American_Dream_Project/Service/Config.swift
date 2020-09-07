@@ -1,16 +1,7 @@
-//
-//  EnumService.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 7/2/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 
- 
 enum ConfigNetworkingService {
-    
     enum openWeather {
         static let baseUrl = "https://api.openweathermap.org/data/2.5/group"
         static let identityTown = "2253350,5128638"

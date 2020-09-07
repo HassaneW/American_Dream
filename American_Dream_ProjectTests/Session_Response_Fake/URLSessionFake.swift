@@ -1,10 +1,3 @@
-//
-//  URLSessionDataTaskFake.swift
-//  test_Projet_9Tests
-//
-//  Created by Wandianga on 8/19/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import Foundation
 
@@ -34,7 +27,6 @@ class URLSessionFake: URLSession {
         return task
     }
 }
-
 class URLSessionDataTaskFake : URLSessionDataTask {
     var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
     var data : Data?

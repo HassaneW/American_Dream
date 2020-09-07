@@ -1,22 +1,15 @@
-//
-//  Wheather.swift
-//  test_Projet_9Tests
-//
-//  Created by Wandianga on 8/27/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import XCTest
 @testable import American_Dream_Project
 
-class Wheather: XCTestCase {
-    func test_getWeathersInvalidURL() {
+class Money: XCTestCase {
+    func test_getMoneysInvalidURL() {
         let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
         let badUrl = "@,%"
-        let weatherService = WeatherService(openWheatherSession: urlSession, apiUrl: badUrl)
+        let moneyService = MoneyService(convertMoneySession: urlSession, apiUrl: badUrl)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -28,13 +21,13 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersError() {
+    func test_getMoneysError() {
         let fakeError = FakeResponseData.error
         let urlSession = URLSessionFake(data: nil, response: nil, error: fakeError)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -45,12 +38,12 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersinvalidResponse() {
+    func test_getMoneyInvalidResponse() {
         let urlSession = URLSessionFake(data: nil, response: nil, error: nil)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -62,13 +55,13 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersErrorStatusCode() {
+    func test_getMoneyErrorStatusCode() {
         let fakeResponse = FakeResponseData.responseKO
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -80,13 +73,13 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersInvalidData() {
+    func test_getMoneyInvalidData() {
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: nil, response: fakeResponse, error: nil)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -98,14 +91,14 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersDecodingError() {
+    func test_getMoneyDecodingError() {
         let fakeData = FakeResponseData.incorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
             case .failure(let error):
                 XCTAssertNotNil(error)
@@ -117,30 +110,22 @@ class Wheather: XCTestCase {
         }
         wait(for : [expectation], timeout: 0.1)
     }
-    func test_getWeathersDecodingSucess() {
-        let fakeData = FakeResponseData.weatherCorrectData
+    func test_getMoneysDecodingSucess() {
+        let fakeData = FakeResponseData.moneyCorrectData
         let fakeResponse = FakeResponseData.responseOK
         let urlSession = URLSessionFake(data: fakeData, response: fakeResponse, error: nil)
-        let weatherService = WeatherService(openWheatherSession: urlSession)
+        let moneyService = MoneyService(convertMoneySession: urlSession)
         let expectation = XCTestExpectation(description: "wait for queue change")
         
-        weatherService.getWeathers { (result) in
+        moneyService.getMoneys { (result) in
             switch result {
-            case .success (let weather):
-                XCTAssertEqual(weather.count, 2)
-                XCTAssertEqual(weather[0].cityName, "Dakar")
-                XCTAssertEqual(weather[1].cityName, "New York")
-                XCTAssertEqual(weather[0].conditionDescription, "broken clouds")
-                XCTAssertEqual(weather[1].conditionDescription, "few clouds")
-                XCTAssertEqual(weather[0].degrees, 27.52)
-                XCTAssertEqual(weather[1].degrees, 13.39)
-                XCTAssertEqual(weather[0].conditions[0].icon, "04d")
-                XCTAssertNil(weather[1].conditions[0].icon)
-                XCTAssertEqual(weather[0].conditionIconUrl, "https://openweathermap.org/img/wn/04d@2x.png")
-                XCTAssertNil(weather[1].conditionIconUrl)
-                XCTAssertEqual(weather[0].description, "Weather for Dakar is 27.52°C with broken clouds, IconUrl: https://openweathermap.org/img/wn/04d@2x.png")
-                XCTAssertEqual(weather[1].description, "Weather for New York is 13.39°C with few clouds, IconUrl: Missing Icon Url")
-
+            case .success (let money):
+                XCTAssertEqual(money.base, "EUR")
+                XCTAssertEqual(money.date, "2020-08-25")
+                XCTAssertEqual(money.monnaie.dollar, 1.183019)
+                XCTAssertEqual(money.monnaie.cfa, 657.685376)
+                XCTAssertEqual(money.baseConversion, 1.183019)
+                XCTAssertEqual(money.description, "Base Money : EUR, date : 2020-08-25, Conversion : 1.183019$")
             case .failure:
                 XCTFail()
             }

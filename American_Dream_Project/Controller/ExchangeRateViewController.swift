@@ -1,22 +1,12 @@
-//
-//  ConverterMoneyViewController.swift
-//  test_Projet_9
-//
-//  Created by Wandianga on 6/29/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import UIKit
 
-class Exchange_rateViewController: UIViewController {
-    
+class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var conversionDollars: UILabel!
     @IBOutlet weak var conversionCfa: UILabel!
     @IBOutlet weak var moneyTextField : UITextField!
-    
     var money : Money?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -89,8 +79,7 @@ class Exchange_rateViewController: UIViewController {
         moneyTextField.resignFirstResponder()
     }
 }
-
-extension Exchange_rateViewController: UITextFieldDelegate {
+extension ExchangeRateViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(#function)
         return true

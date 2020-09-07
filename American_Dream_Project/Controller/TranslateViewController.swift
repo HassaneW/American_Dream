@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TestTranslate
-//
-//  Created by Wandianga on 8/13/20.
-//  Copyright © 2020 Wandianga. All rights reserved.
-//
 
 import UIKit
 import Foundation
@@ -12,17 +5,14 @@ import Foundation
 class TranslateViewController: UIViewController {
     @IBOutlet var picker : UIPickerView!
     @IBOutlet weak var textView : UITextView!
-    
     private let availableLanguages = ["English", "Mandarin"]
     private let availableLanguagesCodes = ["en", "zh"]
     private var selectedLanguageCode = "en"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         picker.dataSource = self
         picker.delegate = self
-        
         setupTextView()
     }
     private func setupTextView() {
@@ -43,13 +33,13 @@ class TranslateViewController: UIViewController {
         }
     }
     func addToolbar() {
-           let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
-           let clear = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clikedClear))
-           let convert = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done))
-           let spaceBtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-           toolbar.setItems([clear, spaceBtn, convert], animated: true)
-           self.textView.inputAccessoryView = toolbar
-       }
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
+        let clear = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clikedClear))
+        let convert = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(done))
+        let spaceBtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([clear, spaceBtn, convert], animated: true)
+        self.textView.inputAccessoryView = toolbar
+    }
     @objc func clikedClear() {
         textView.text = ""
     }
@@ -61,8 +51,7 @@ class TranslateViewController: UIViewController {
         setUp()
     }
 }
-
-extension TranslateViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+extension TranslateViewController : UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -78,7 +67,3 @@ extension TranslateViewController : UIPickerViewDataSource, UIPickerViewDelegate
     }
 }
 
-//fixer le nom de fichier
-extension TranslateViewController: UITextViewDelegate {
-    
-}
