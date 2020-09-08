@@ -540,7 +540,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V8J9Z7FB8;
 				INFOPLIST_FILE = American_Dream_ProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +548,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hw.American-Dream-ProjectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/American_Dream_Project.app/American_Dream_Project";
 			};
 			name = Debug;
@@ -562,7 +560,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2V8J9Z7FB8;
 				INFOPLIST_FILE = American_Dream_ProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,7 +568,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hw.American-Dream-ProjectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/American_Dream_Project.app/American_Dream_Project";
 			};
 			name = Release;
